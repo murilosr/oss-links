@@ -12,4 +12,12 @@ describe('Home', () => {
 
     expect(heading).toBeInTheDocument()
   })
+
+  it('renders a p', () => {
+    render(<Home />)
+
+    const p = screen.getByText(/Get started by editing/i)
+
+    expect(p).toBeInTheDocument()
+  })
 })
