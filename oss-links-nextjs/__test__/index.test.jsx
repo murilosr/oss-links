@@ -16,7 +16,7 @@ describe('Home', () => {
   it('renders a p', () => {
     render(<Home />)
 
-    const p = screen.getByText(/Get started by editing/i)
+    const p = screen.getByText(/Tailwind CSS installed!/i)
 
     expect(p).toBeInTheDocument()
   })
