@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders a div 1`] = `
+<div
+  class="p-6"
+>
+  Hello World ^^
+</div>
+`;
+
+exports[`Home renders a div 2 1`] = `
+<div
+  class="p-6"
+>
+  This is a button ^^
+</div>
+`;
