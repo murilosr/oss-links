@@ -1,5 +1,5 @@
-import { Add } from '@mui/icons-material'
-import { Button } from '@mui/material'
+import AddIcon from '@mui/icons-material/Add'
+import Button from '@mui/material/Button'
 import Head from 'next/head'
 import AppBar from 'src/components/AppBar'
 
@@ -26,7 +26,7 @@ export default function Home() {
         </div>
 
         <div>
-          <Button variant='contained' startIcon={(<Add />)}>Material UI 5 installed!</Button>
+          <Button variant='contained' startIcon={(<AddIcon />)}>Material UI 5 installed!</Button>
         </div>
 
       </main>

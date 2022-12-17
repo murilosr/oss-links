@@ -5,7 +5,9 @@ import MUIAppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Menu from '@mui/material/Menu'
-import { MenuItem, Button, Avatar } from '@mui/material'
+import MenuItem from '@mui/material/MenuItem'
+import Button from '@mui/material/Button'
+import Avatar from '@mui/material/Avatar'
 import Link from 'next/link'
 
 
