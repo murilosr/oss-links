@@ -382,11 +382,41 @@ video {
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    overflow: hidden;
   }
 
   a {
     color: inherit;
     text-decoration: none;
+  }
+  
+
+  @media (min-width: 0px) and (orientation: landscape){
+    :root {
+        --toolbar-height: 48px;
+        --main-y-padding: 0;
+    }
+  }
+
+  @media (min-width: 0px){
+      :root {
+          --toolbar-height: 56px;
+          --main-y-padding: 0;
+      }
+  }
+
+  @media (min-width: 600px){
+      :root {
+          --toolbar-height: 64px;
+          --main-y-padding: 0.75rem;
+      }
+  }
+
+  .main-size {
+      @apply w-full;
+      padding-top: var(--toolbar-height);
+      padding-bottom: var(--main-y-padding);
+      height: 100vh;
   }
 
 }
