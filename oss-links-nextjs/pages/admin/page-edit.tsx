@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button'
 import Head from 'next/head'
-import Link from 'next/link'
+import BlockManagerWidget from 'src/components/BlockManagerWidget'
 import AdminPanel from 'src/layouts/AdminPanel'
 
 export default function Home() {
@@ -13,9 +13,7 @@ export default function Home() {
       </Head>
 
       <AdminPanel>
-        <Link href={"/admin/page-edit"}>
-          <Button variant='outlined'>Page Edit</Button>
-        </Link>
+        <BlockManagerWidget />
       </AdminPanel>
     </>
   )
