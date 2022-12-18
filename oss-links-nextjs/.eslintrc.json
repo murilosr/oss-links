@@ -5,8 +5,18 @@
       "error",
       {
         "patterns": [
-          "@mui/icons-material",
-          "!@mui/icons-material/"
+          {
+            "group": [
+              "@mui/icons-material",
+              "!@mui/icons-material/"
+            ]
+          },
+          {
+            "group": [
+              "@mui/material",
+              "!@mui/material/"
+            ]
+          }
         ]
       }
     ]

@@ -8,7 +8,7 @@
   .main-size {
     @apply w-full;
     padding-top: var(--toolbar-height);
-    padding-bottom: var(--main-y-padding);
+    padding-bottom: 0;
     height: 100vh;
   }
 
@@ -18,7 +18,7 @@
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    overflow: hidden;
+    overflow: clip;
   }
 
   a {
