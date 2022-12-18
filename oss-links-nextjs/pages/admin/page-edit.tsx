@@ -1,4 +1,3 @@
-import Button from '@mui/material/Button'
 import Head from 'next/head'
 import BlockManagerWidget from 'src/components/BlockManagerWidget'
 import AdminPanel from 'src/layouts/AdminPanel'

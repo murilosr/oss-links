@@ -5,6 +5,7 @@ import LinkIcon from '@mui/icons-material/Link';
 import TextField from '@mui/material/TextField';
 import Switch from '@mui/material/Switch';
 import IconButton from '@mui/material/IconButton';
+import EditBlockMenu from './EditBlockMenu';
 
 export default function EditBlock() {
     return (
@@ -26,9 +27,7 @@ export default function EditBlock() {
                         inputProps={{ "aria-label": '' }}
                         size="small"
                     />
-                    <IconButton size='small'>
-                        <MoreVertIcon className='' />
-                    </IconButton>
+                    <EditBlockMenu />
                 </div>
             </div>
             <div className='flex grow mx-2 my-2'>

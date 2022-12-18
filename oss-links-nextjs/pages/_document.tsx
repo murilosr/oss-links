@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html>
       <Head />
-      <body>
+      <body id='__tw-root'>
         <Main />
         <NextScript />
       </body>
