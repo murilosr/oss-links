@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import BlockManagerWidget from 'src/components/BlockManagerWidget'
+import MobilePreviewWidget from 'src/components/MobilePreviewWidget'
 import AdminPanel from 'src/layouts/AdminPanel'
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
 
       <AdminPanel>
         <BlockManagerWidget />
+        <MobilePreviewWidget />
       </AdminPanel>
     </>
   )

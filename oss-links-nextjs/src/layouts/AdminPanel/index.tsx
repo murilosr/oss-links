@@ -6,11 +6,9 @@ import AddIcon from '@mui/icons-material/Add';
 export default function AdminPanel(props: { children?: React.ReactNode }) {
     return (
         <>
-            <header>
                 <AppBar />
-            </header>
 
-            <main className="main-size flex flex-col items-center justify-center">
+            <main className="main-size flex items-center justify-center">
 
                 {props.children}
                 
