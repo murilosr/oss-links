@@ -10,7 +10,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MenuList from '@mui/material/MenuList';
 
-export default function EditBlockMenu() {
+export default function EditBlockMenu(props: {removeBlockCallback: () => void}) {
 
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
     const menuIsOpen = Boolean(anchorEl);
@@ -57,7 +57,7 @@ export default function EditBlockMenu() {
                         </ListItemIcon>
                         <ListItemText>Duplicate</ListItemText>
                     </MenuItem>
-                    <MenuItem className="text-red-500 font-bold align-middle" onClick={handleCloseMenu}>
+                    <MenuItem className="text-red-500 font-bold align-middle" onClick={() => {props.removeBlockCallback(); handleCloseMenu()}}>
                         <ListItemIcon>
                             <DeleteIcon className="text-red-500" fontSize='small' />
                         </ListItemIcon>

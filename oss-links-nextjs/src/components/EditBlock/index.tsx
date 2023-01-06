@@ -1,13 +1,17 @@
 import React from 'react';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import LinkIcon from '@mui/icons-material/Link';
-import TextField from '@mui/material/TextField';
-import Switch from '@mui/material/Switch';
-import IconButton from '@mui/material/IconButton';
-import EditBlockMenu from './EditBlockMenu';
 
-export default function EditBlock() {
+import LinkIcon from '@mui/icons-material/Link';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import Switch from '@mui/material/Switch';
+import EditBlockMenu from './EditBlockMenu';
+import { PageBlocksContext } from "src/contexts/PageBlocksProvider";
+
+export default function EditBlock(props: React.PropsWithChildren & { id: string }) {
+
+    const { removeBlock } = React.useContext(PageBlocksContext);
+
+    const removeBlockHandler = () => removeBlock(props.id);
+
     return (
         <div className='flex flex-col bg-white border md:rounded-md
                         pb-4 px-2 shrink-0 grow-0
@@ -17,7 +21,7 @@ export default function EditBlock() {
             </div>
             <div className='flex items-center grow font-bold'>
                 {/* <IconButton size='small'> */}
-                    <LinkIcon className="ml-1.5" />
+                <LinkIcon className="ml-1.5" />
                 {/* </IconButton> */}
                 <div className='ml-auto'>
                     <Switch
@@ -27,25 +31,13 @@ export default function EditBlock() {
                         inputProps={{ "aria-label": '' }}
                         size="small"
                     />
-                    <EditBlockMenu />
+                    <EditBlockMenu
+                        removeBlockCallback={removeBlockHandler}
+                    />
                 </div>
             </div>
-            <div className='flex grow mx-2 my-2'>
-                <TextField
-                    label="Link text"
-                    size='small'
-                    variant='standard'
-                    className='w-full'
-                />
-            </div>
-            <div className='flex grow mx-2 my-2'>
-                <TextField
-                    label="URL"
-                    size='small'
-                    variant='standard'
-                    className='w-full'
-                />
-            </div>
+
+            {props.children}
         </div>
     );
 }

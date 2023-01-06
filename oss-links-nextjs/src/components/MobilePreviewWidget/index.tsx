@@ -1,6 +1,7 @@
 import React from 'react';
 
 import CircularProgress from '@mui/material/CircularProgress';
+import { PageBlocksContext } from 'src/contexts/PageBlocksProvider';
 
 interface ElementSize {
     width: number
@@ -59,8 +60,10 @@ export default function MobilePreviewWidget() {
         }
     }, []);
 
+    const {blocks} = React.useContext(PageBlocksContext);
+
     // TODO: transform the result with the actual object's data
-    const payloadB64 = Buffer.from(JSON.stringify({ title: "testtt", "url": "https://github.com" })).toString("base64");
+    const payloadB64 = Buffer.from(JSON.stringify({ blocks })).toString("base64");
 
     return (
         <>
