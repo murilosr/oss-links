@@ -4,15 +4,19 @@ import Head from 'next/head';
 
 export default function Preview() {
 
-    const [payloadData, setPayloadData] = React.useState<any>(null);
+    const [payloadData, setPayloadData] = React.useState<string>("");
 
     React.useEffect(() => {
         let payload : any = (new URLSearchParams(window.location.search)).get("payload");
+        let tmpPayloadData = "";
         if(payload === null){
-            setPayloadData(JSON.stringify({label: 'Testando', url: 'https://google.com'}));
+            tmpPayloadData = JSON.stringify({label: 'Testando', url: 'https://google.com'}, null, 2);
         }else{
-            setPayloadData(atob(payload));
+            tmpPayloadData = (JSON.stringify(JSON.parse(atob(payload)),null,2));
         }
+
+        tmpPayloadData = "Data:<br />" + tmpPayloadData.replaceAll('\n','<br />');
+        setPayloadData(tmpPayloadData);
     }, []);
 
     return (
@@ -24,9 +28,9 @@ export default function Preview() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <div className='w-full h-screen bg-black text-white flex flex-col items-center justify-center'>
+            <div className='w-full h-screen bg-black text-white flex flex-col items-center justify-center p-2'>
                 <h1 className='text-2xl'>Preview page</h1>
-                <span>Data: {payloadData}</span>
+                <pre className='w-full break-words whitespace-pre-wrap' dangerouslySetInnerHTML={{__html: payloadData}} />
             </div>
         </>
     )

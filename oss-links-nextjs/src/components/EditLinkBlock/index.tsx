@@ -3,6 +3,7 @@ import React from 'react';
 import TextField from '@mui/material/TextField';
 import EditBlock from 'src/components/EditBlock';
 import { IEditBlockTypes, IEditLinkBlock } from 'src/types';
+import LinkIcon from '@mui/icons-material/Link';
 
 export default function EditLinkBlock(props : {
     data : IEditLinkBlock,
@@ -26,7 +27,7 @@ export default function EditLinkBlock(props : {
     }
 
     return(
-        <EditBlock id={data.id}>
+        <EditBlock icon={<LinkIcon />} id={data.id}>
             <div className='flex grow mx-2 my-2'>
                 <TextField
                     label="Link text"

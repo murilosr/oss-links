@@ -5,8 +5,13 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Switch from '@mui/material/Switch';
 import EditBlockMenu from './EditBlockMenu';
 import { PageBlocksContext } from "src/contexts/PageBlocksProvider";
+import { IconProps } from '@mui/material/Icon/Icon';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
 
-export default function EditBlock(props: React.PropsWithChildren & { id: string }) {
+export default function EditBlock(props: React.PropsWithChildren & {
+    id: string,
+    icon: React.ReactElement
+}) {
 
     const { removeBlock } = React.useContext(PageBlocksContext);
 
@@ -21,7 +26,8 @@ export default function EditBlock(props: React.PropsWithChildren & { id: string 
             </div>
             <div className='flex items-center grow font-bold'>
                 {/* <IconButton size='small'> */}
-                <LinkIcon className="ml-1.5" />
+                {/* <LinkIcon className="ml-1.5" /> */}
+                <div className='p-[5px] w-[24] h-[24]'>{props.icon}</div>
                 {/* </IconButton> */}
                 <div className='ml-auto'>
                     <Switch
