@@ -9,7 +9,7 @@ export default function RenderAvatarBlock(props: { data: IEditAvatarBlock }) {
         <div className='flex justify-center w-full'>
             <Avatar src={data.src}
                 alt="Avatar"
-                sx={{ width: 64, height: 64 }}
+                sx={{ width: 128, height: 128 }}
             />
         </div>
     );

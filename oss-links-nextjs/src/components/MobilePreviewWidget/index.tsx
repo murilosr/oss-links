@@ -2,17 +2,32 @@ import React from 'react';
 
 import CircularProgress from '@mui/material/CircularProgress';
 import { PageBlocksContext } from 'src/contexts/PageBlocksProvider';
+import { useDebounce } from 'usehooks-ts';
 
 interface ElementSize {
     width: number
     height: number
 }
 
+
+const IFrameMemo = React.memo((props: {payloadBase64 : string}) => {
+    return (
+        <iframe src={`/preview?payload=${props.payloadBase64}`} className='w-full h-[845px] shrink-0 grow-0' />
+    );
+}, (prevProps, nextProps) => {
+    return prevProps.payloadBase64 === nextProps.payloadBase64;
+});
+
+IFrameMemo.displayName = "IFrame";
+
+
 export default function MobilePreviewWidget() {
 
     const smartphoneContainerRef = React.useRef<HTMLDivElement | null>(null);
     const [containerScale, setContainerScale] = React.useState("1.0");
     const [previewReady, setPreviewReady] = React.useState(false);
+    const {blocks} = React.useContext(PageBlocksContext);
+    const debouncedBlocks = useDebounce(blocks, 500);
 
     React.useEffect(() => {
         if (window !== null) {
@@ -60,10 +75,10 @@ export default function MobilePreviewWidget() {
         }
     }, []);
 
-    const {blocks} = React.useContext(PageBlocksContext);
 
     // TODO: transform the result with the actual object's data
-    const payloadB64 = Buffer.from(encodeURIComponent(JSON.stringify({ blocks }))).toString("base64");
+    const payloadB64 = Buffer.from(encodeURIComponent(JSON.stringify({ blocks: debouncedBlocks }))).toString("base64");
+    console.log(payloadB64, debouncedBlocks);
 
     return (
         <>
@@ -86,7 +101,7 @@ export default function MobilePreviewWidget() {
                                 <div className='w-full h-[47px] bg-black relative flex justify-center box-border shrink-0 grow-0'>
                                     <div className='w-[190px] h-[24px] bg-gray-400 rounded-b-xl inline-block absolute top-0 z-10 shrink-0 grow-0' />
                                 </div>
-                                <iframe src={`/preview?payload=${payloadB64}`} className='w-full h-[845px] shrink-0 grow-0' />
+                                <IFrameMemo payloadBase64={payloadB64} />
                                 <div className='w-full h-[34px] bg-black shrink-0 grow-0' />
                             </div>
                         ):
