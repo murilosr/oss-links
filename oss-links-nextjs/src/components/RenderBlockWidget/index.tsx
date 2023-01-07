@@ -9,7 +9,7 @@ export default function RenderBlockWidget() {
 
     return (
         <div className="flex flex-col justify-start items-center
-                        w-full h-full overflow-y-auto
+                        w-full h-full overflow-y-auto my-4
                         space-y-4 md:w-[768px]"
         >
             {blockElList}
