@@ -7,6 +7,7 @@ type PageBlocksContextData = {
     addBlock : (block: IEditBlockTypes) => void
     removeBlock : (id : string) => void
     updateBlock : (newBlock : IEditBlockTypes) => void
+    setBlocks : (newValue: IEditBlockTypes[]) => void
 };
 
 export const PageBlocksContext = React.createContext({} as PageBlocksContextData);
@@ -46,7 +47,8 @@ export const PageBlocksProvider = ({ children }: React.PropsWithChildren) => {
                 clearBlocks,
                 addBlock,
                 removeBlock,
-                updateBlock
+                updateBlock,
+                setBlocks
             }}
         >
             {children}

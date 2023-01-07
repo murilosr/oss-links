@@ -27,7 +27,7 @@ export default function EditBlock(props: React.PropsWithChildren & {
             <div className='flex items-center grow font-bold'>
                 {/* <IconButton size='small'> */}
                 {/* <LinkIcon className="ml-1.5" /> */}
-                <div className='p-[5px] w-[24] h-[24]'>{props.icon}</div>
+                <div className='p-[5px] w-[24] h-[24] text-gray-600'>{props.icon}</div>
                 {/* </IconButton> */}
                 <div className='ml-auto'>
                     <Switch

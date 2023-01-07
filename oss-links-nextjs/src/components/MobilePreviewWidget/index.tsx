@@ -63,7 +63,7 @@ export default function MobilePreviewWidget() {
     const {blocks} = React.useContext(PageBlocksContext);
 
     // TODO: transform the result with the actual object's data
-    const payloadB64 = Buffer.from(JSON.stringify({ blocks })).toString("base64");
+    const payloadB64 = Buffer.from(encodeURIComponent(JSON.stringify({ blocks }))).toString("base64");
 
     return (
         <>
