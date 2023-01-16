@@ -8,7 +8,7 @@ export default function AdminPanel(props: { children?: React.ReactNode }) {
         <>
                 <AppBar />
 
-            <main className="main-size flex items-center justify-center">
+            <main className="main-size flex flex-col items-center justify-center">
 
                 {props.children}
                 
