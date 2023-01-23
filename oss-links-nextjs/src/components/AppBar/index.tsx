@@ -67,8 +67,8 @@ const AppBar = () => {
                         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                         >
-                        <MenuItem>Login</MenuItem>
-                    <MenuItem>Sign up</MenuItem>
+                        <Link href="/login"><MenuItem>Login</MenuItem></Link>
+                        <Link href="/login"><MenuItem>Sign up</MenuItem></Link>
                 </Menu>
             </Box>
         </Toolbar>
